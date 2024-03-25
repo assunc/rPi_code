@@ -6,8 +6,8 @@ class IRSensors:
     State = Enum('State', ['IDLE', 'ENTER_IN', 'MIDDLE_IN', 'EXIT_IN',
                            'ENTER_OUT', 'MIDDLE_OUT', 'EXIT_OUT'])
 
-    upThresh = 0.8
-    downThresh = 0.5
+    upThresh = 0.115
+    downThresh = 0.1
 
     sensorIn = MCP3008(1)
     sensorOut = MCP3008(2)
@@ -67,4 +67,6 @@ class IRSensors:
                 self.next_state = self.State.MIDDLE_OUT
 
         self.curr_state = self.next_state
+        # print(round(vIn, 4), round(vOut, 4), self.curr_state)
         return diff
+    

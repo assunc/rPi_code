@@ -11,8 +11,8 @@ def main():
     State = Enum('State', ['IDLE', 'ENTER_IN', 'MIDDLE_IN', 'EXIT_IN', 'ENTER_OUT', 'MIDDLE_OUT', 'EXIT_OUT'])
     curr_state = State.IDLE
 
-    upThresh = 0.8
-    downThresh = 0.5
+    upThresh = 0.115
+    downThresh = 0.1
 
     sensorIn = MCP3008(1)
     sensorOut = MCP3008(2)
@@ -72,7 +72,7 @@ def main():
 
         print(round(vIn, 4), round(vOut, 4), curr_state, chickens)
         curr_state = next_state
-        sleep(0.2)
+        sleep(0.2) 
 
 
 if __name__ == '__main__':
